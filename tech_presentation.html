@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building the Future: How Teens Can Thrive in Tech With Purpose</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            min-height: 100vh;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 95vw;
+            max-width: 1200px;
+            min-height: 90vh;
+            height: auto;
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 60px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 120px;
+            height: auto;
+            background: linear-gradient(45deg, #f6d365 0%, #fda085 100%);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+         .logo-img-curve {
+                width: 100px;
+                height: 50px;
+                object-fit: contain;
+                margin-left: -10px;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #333333;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #667eea;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .stat-highlight {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .career-card {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .career-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .career-description {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .value-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 3px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .bullet-list li {
+            background: #f8f9ff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            font-size: 1.1em;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            color: #333333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .bullet-list li:hover {
+            background: #eef1ff;
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .step {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e8ecff;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            background: #667eea;
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-message {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .tech-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 2em;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .example-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e8ecff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .example-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .career-grid,
+            .values-grid,
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                width: 100px;
+                top: 20px;
+                right: 20px;
+            }
+           
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="tech-icons">
+                <div class="icon" style="top: 10%; left: 10%;">⚡</div>
+                <div class="icon" style="top: 20%; right: 15%;">🚀</div>
+                <div class="icon" style="bottom: 20%; left: 20%;">💻</div>
+                <div class="icon" style="bottom: 10%; right: 10%;">🔧</div>
+            </div>
+            <div class="logo">
+                The Curve<br>Africa <img class="logo-img-curve" src="./Transparent_curve-hbm5oUUJ.png" alt="the-curve-africa"/>
+            </div>
+            <h1>Building the Future</h1>
+            <div class="subtitle">How Teens Can Thrive in Tech With Purpose</div>
+            <div style="text-align: center; margin-top: 40px;">
+                <div style="font-size: 1.2em; color: #555555;">A beginner-friendly session on Software Development & Creativity</div>
+                <div style="margin-top: 30px; font-size: 1.1em; color: #666666;">Presented by Colin Decorce</div>
+                
+            </div>
+            <div class="slide-number">1 / 9</div>
+        </div>
+
+        <!-- Slide 2: Why Tech Matters Today -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>Why Tech Matters Today</h2>
+            
+            <div class="stat-highlight">
+                📊 Over 65% of today's students will work in jobs that don't yet exist
+                <div style="font-size: 0.8em; margin-top: 10px; color: #ffffff; opacity: 0.9;">— World Economic Forum</div>
+            </div>
+            
+            <ul class="bullet-list">
+                <li>🌍 Tech is the fastest-growing career space globally, with 3.7M+ new tech jobs expected by 2026</li>
+                <li>⚡ Teens have unprecedented access to tools that cost millions just decades ago</li>
+                <li>🎨 Creativity + Technology = Infinite possibilities for real-world problem solving</li>
+                <li>💡 Africa's tech ecosystem is booming - perfect time to be part of the revolution</li>
+            </ul>
+            <div class="slide-number">2 / 9</div>
+        </div>
+
+        <!-- Slide 3: Career Pathways -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>Career Pathways in Tech</h2>
+            
+            <div class="career-grid">
+                <div class="career-card">
+                    <div class="career-title">🎨 Frontend Development</div>
+                    <div class="career-description">Bring ideas to life with beautiful, interactive interfaces using HTML, CSS, React, and modern frameworks. Average salary: $70k-120k+</div>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-title">⚙️ Backend Development</div>
+                    <div class="career-description">Power applications with databases, APIs, and server logic using Node.js, Python, or Go. Average salary: $80k-130k+</div>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-title">✨ UI/UX Design</div>
+                    <div class="career-description">Design intuitive, human-centered digital experiences that millions will love. Average salary: $65k-115k+</div>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-title">🚀 Emerging Fields</div>
+                    <div class="career-description">AI/ML Engineering, Cybersecurity, Data Science, DevOps, Blockchain Development. Average salary: $90k-150k+</div>
+                </div>
+            </div>
+            <div class="slide-number">3 / 9</div>
+        </div>
+
+        <!-- Slide 4: What You'll Gain -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>What You'll Gain From This Talk</h2>
+            
+            <ul class="bullet-list">
+                <li>🗺️ A clear, actionable roadmap for starting your tech journey from zero to hero</li>
+                <li>🎯 Understanding how creativity and technical skills combine to drive innovation</li>
+                <li>💫 Inspiration to build technology with purpose, solving real problems for real people</li>
+                <li>📱 Examples of teens creating impactful tech projects that changed lives</li>
+                <li>🌟 Practical steps you can take TODAY to begin your transformation</li>
+            </ul>
+            <div class="slide-number">4 / 9</div>
+        </div>
+
+        <!-- Slide 5: Values in Tech -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>Core Values in Tech</h2>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-title">🎯 Purpose</div>
+                    <div>Use technology to solve meaningful problems, not just chase trends. Build for impact, not just profit.</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-title">🛡️ Integrity</div>
+                    <div>Build responsibly with focus on data privacy, security, accessibility, and ethical AI practices.</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-title">🎨 Creativity</div>
+                    <div>Innovation starts with imagination. The best solutions come from thinking differently.</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-title">🤝 Collaboration</div>
+                    <div>Technology is a team sport. Great products are built by diverse teams working together.</div>
+                </div>
+            </div>
+            <div class="slide-number">5 / 9</div>
+        </div>
+
+        <!-- Slide 6: Real-World Examples -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>Real-World Success Stories</h2>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-title">🌍 African Success Stories</div>
+                    <div>• <strong>Flutterwave & Paystack:</strong> Built by young developers, now processing billions in payments globally<br>
+                    • <strong>Andela:</strong> Training African developers for global companies<br>
+                    • <strong>iROKOtv:</strong> Nigeria's Netflix, revolutionizing African entertainment</div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-title">👨‍💻 Teen Innovators</div>
+                    <div>• <strong>Shubham Banerjee (13):</strong> Created Braigo, a Braille printer using LEGO<br>
+                    • <strong>Gitanjali Rao (15):</strong> Invented device to detect lead in drinking water<br>
+                    • <strong>Moziah Bridges (12):</strong> Built Mo's Bows, million-dollar fashion tech company</div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-title">🎨 Design Impact</div>
+                    <div>Simple, intuitive design made WhatsApp, TikTok, and Instagram global phenomena. Good UX = billions of users and massive success.</div>
+                </div>
+            </div>
+            <div class="slide-number">6 / 9</div>
+        </div>
+
+        <!-- Slide 7: Getting Started -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>Your Roadmap to Success</h2>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Learn the Fundamentals</h3>
+                    <div>Master HTML, CSS, JavaScript. Use free resources like freeCodeCamp, Codecademy, or The Odin Project. Dedicate 1-2 hours daily.</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Build Real Projects</h3>
+                    <div>Create a personal website, portfolio, calculator app, or weather app. Start simple, then add complexity. Show your work on GitHub.</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Join Communities</h3>
+                    <div>Participate in coding clubs, hackathons, open-source projects. Connect with other developers on Twitter, Discord, and local meetups.</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Stay Consistent</h3>
+                    <div>Progress compounds over time. Code every day, even if just for 30 minutes. Track your learning journey and celebrate small wins.</div>
+                </div>
+            </div>
+            <div class="slide-number">7 / 9</div>
+        </div>
+
+        <!-- Slide 8: How The Curve Africa Helps -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <h2>How The Curve Africa Empowers You</h2>
+            
+            <h3>🎯 Our Mission</h3>
+            <div style="font-size: 1.2em; margin-bottom: 40px; color: #555555;">To empower young Africans with world-class digital skills and create the next generation of tech leaders.</div>
+            
+            <h3>💫 What We Provide</h3>
+            <ul class="bullet-list">
+                <li>🎓 Comprehensive training in Frontend, Backend, UI/UX, and emerging technologies</li>
+                <li>🏗️ Real-world projects with actual clients to build your portfolio and experience</li>
+                <li>👨‍🏫 Mentorship from industry experts and successful African tech entrepreneurs</li>
+                <li>🌍 A supportive community of ambitious builders and innovators</li>
+                <li>💼 Career guidance, internship opportunities, and job placement support</li>
+            </ul>
+            <div class="slide-number">8 / 9</div>
+        </div>
+
+        <!-- Slide 9: Call to Action -->
+        <div class="slide">
+            <div class="logo">The Curve<br>Africa</div>
+            <div class="cta-section">
+                <div class="cta-message">"You are the future of technology.<br>Start today, build with purpose,<br>create with passion."</div>
+                
+                <div style="font-size: 1.3em; margin: 30px 0; color: #ffffff;">
+                    ✨ Your journey to tech mastery begins with a single line of code<br>
+                    🚀 The world needs the problems only YOU can solve<br>
+                    💡 Africa's tech future is in YOUR hands
+                </div>
+                
+                <div style="font-size: 1.1em; margin-top: 40px; color: #ffffff;">
+                    <strong>Ready to transform your future?</strong><br>
+                    Join The Curve Africa community today.
+                </div>
+                
+                <div style="margin-top: 50px; font-size: 1em; color: #ffffff; opacity: 0.9;">
+                    <em>Presented by The Curve Africa</em>
+                </div>
+            </div>
+            <div class="slide-number">9 / 9</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Auto-advance (optional)
+        // setInterval(nextSlide, 10000);
+    </script>
+</body>
+</html>
